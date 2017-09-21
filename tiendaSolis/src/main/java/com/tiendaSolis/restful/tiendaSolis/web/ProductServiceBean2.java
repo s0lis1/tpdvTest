@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
  * @author julio
  */
 @Service
-public class ProductServiceBean implements ProductService{
+public class ProductServiceBean2 implements ProductService2{
 
     @Override
     public List<Product> getProducts() {

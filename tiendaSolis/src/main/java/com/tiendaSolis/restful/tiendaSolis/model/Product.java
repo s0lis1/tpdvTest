@@ -6,15 +6,20 @@
 package com.tiendaSolis.restful.tiendaSolis.model;
 
 import java.math.BigInteger;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 /**
  *
  * @author julio
  */
 
-
+@Entity
 public class Product {
     
+    @Id
+    @GeneratedValue
     private BigInteger id;
     private String description;
 

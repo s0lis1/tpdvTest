@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import com.tiendaSolis.restful.tiendaSolis.service.ProductService;
 
 /**
  *
@@ -41,9 +42,9 @@ public class ProductController {
             value = "api/products/{id}",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Product>> getProducts(@PathVariable("id") BigInteger id) {
-        List<Product> productsFind = productService.getProducts(id);
-        if (productsFind.isEmpty()) {
+    public ResponseEntity<Product> getProducts(@PathVariable("id") BigInteger id) {
+        Product productsFind = productService.getProducts(id);
+        if (productsFind == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             return new ResponseEntity<>(productsFind, HttpStatus.OK);
@@ -56,10 +57,10 @@ public class ProductController {
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Product>> getProducts(@RequestBody Product productModify) {
+    public ResponseEntity<Product> getProducts(@RequestBody Product productModify) {
         
-        List<Product> productsFind = productService.updateProducts(productModify);
-        if (productsFind.isEmpty()) {
+        Product productsFind = productService.updateProducts(productModify);
+        if (productsFind==null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         } else {
             return new ResponseEntity<>(productsFind, HttpStatus.CREATED);

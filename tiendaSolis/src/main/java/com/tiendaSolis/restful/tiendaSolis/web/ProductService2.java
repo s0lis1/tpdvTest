@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author julio
  */
-public interface ProductService {
+public interface ProductService2 {
     
     List<Product> getProducts();
     
