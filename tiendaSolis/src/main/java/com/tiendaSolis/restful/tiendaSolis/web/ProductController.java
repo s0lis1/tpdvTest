@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.tiendaSolis.restful.tiendaSolis.service.ProductService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 /**
  *
@@ -33,6 +34,7 @@ public class ProductController {
             value = "api/products",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<List<Product>> getProducts() {
 
         return new ResponseEntity<>(productService.getProducts(), HttpStatus.OK);
@@ -42,6 +44,7 @@ public class ProductController {
             value = "api/products/{id}",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<Product> getProducts(@PathVariable("id") Integer id) {
         Product productsFind = productService.getProducts(id);
         if (productsFind == null) {
@@ -57,6 +60,7 @@ public class ProductController {
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<Product> getProducts(@RequestBody Product productModify) {
         
         Product productsFind = productService.updateProducts(productModify);
