@@ -8,7 +8,9 @@ package com.tiendaSolis.restful.tiendaSolis.model;
 import java.math.BigInteger;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
@@ -16,14 +18,15 @@ import javax.persistence.Id;
  */
 
 @Entity
+@Table(name = "product")
 public class Product {
     
     @Id
-    @GeneratedValue
-    private BigInteger id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String description;
 
-    public Product(BigInteger id, String description) {
+    public Product(Integer id, String description) {
         this.id = id;
         this.description = description;
     }
@@ -34,14 +37,14 @@ public class Product {
     /**
      * @return the id
      */
-    public BigInteger getId() {
+    public Integer getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(BigInteger id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

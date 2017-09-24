@@ -42,7 +42,7 @@ public class ProductController {
             value = "api/products/{id}",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Product> getProducts(@PathVariable("id") BigInteger id) {
+    public ResponseEntity<Product> getProducts(@PathVariable("id") Integer id) {
         Product productsFind = productService.getProducts(id);
         if (productsFind == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);

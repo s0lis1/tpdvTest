@@ -30,7 +30,7 @@ public class ProductServiceBean implements ProductService{
     }
 
     @Override
-    public Product getProducts(BigInteger id) {
+    public Product getProducts(Integer id) {
         Product products = productRepository.findOne(id);
         //List<Product> productsFind = products.stream().filter(p -> p.getId().compareTo(id) == 0).collect(Collectors.toList());
         return products;

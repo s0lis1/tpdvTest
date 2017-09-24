@@ -17,7 +17,7 @@ public interface ProductService {
     
     List<Product> getProducts();
     
-    Product getProducts(BigInteger id);
+    Product getProducts(Integer id);
     
     Product updateProducts(Product productModify);
     
