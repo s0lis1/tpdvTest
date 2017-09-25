@@ -6,7 +6,6 @@
 package com.tiendaSolis.restful.tiendaSolis.web;
 
 import com.tiendaSolis.restful.tiendaSolis.model.Product;
-import java.math.BigInteger;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,12 +28,13 @@ public class ProductController {
     
     @Autowired
     private ProductService productService;
+    public static final String URL = "http://localhost:4200";
     
     @RequestMapping(
             value = "api/products",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = URL)
     public ResponseEntity<List<Product>> getProducts() {
 
         return new ResponseEntity<>(productService.getProducts(), HttpStatus.OK);
@@ -44,7 +44,7 @@ public class ProductController {
             value = "api/products/{id}",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = URL)
     public ResponseEntity<Product> getProducts(@PathVariable("id") Integer id) {
         Product productsFind = productService.getProducts(id);
         if (productsFind == null) {
@@ -60,7 +60,7 @@ public class ProductController {
             method = RequestMethod.POST,
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = URL)
     public ResponseEntity<Product> getProducts(@RequestBody Product productModify) {
         
         Product productsFind = productService.updateProducts(productModify);

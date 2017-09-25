@@ -43,6 +43,8 @@ public class ProductServiceBean implements ProductService{
         if (product == null) {
             return null;
         } else {
+            product.setId(productModify.getId());
+            product.setDescription(productModify.getDescription());
             Product updateProduct = productRepository.save(product);
             return updateProduct;
         }
