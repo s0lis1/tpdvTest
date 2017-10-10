@@ -18,21 +18,27 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "product")
+@Table(name = "products")
 public class Product {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String description;
-
-    public Product(Integer id, String description) {
-        this.id = id;
-        this.description = description;
-    }
+    private String sku;
+    private String ean;
 
     public Product() {
     }
+
+    public Product(Integer id, String description, String sku, String ean) {
+        this.id = id;
+        this.description = description;
+        this.sku = sku;
+        this.ean = ean;
+    }
+
+   
 
     /**
      * @return the id
@@ -60,6 +66,34 @@ public class Product {
      */
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    /**
+     * @return the sku
+     */
+    public String getSku() {
+        return sku;
+    }
+
+    /**
+     * @param sku the sku to set
+     */
+    public void setSku(String sku) {
+        this.sku = sku;
+    }
+
+    /**
+     * @return the ean
+     */
+    public String getEan() {
+        return ean;
+    }
+
+    /**
+     * @param ean the ean to set
+     */
+    public void setEan(String ean) {
+        this.ean = ean;
     }
     
 }
